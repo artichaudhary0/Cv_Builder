@@ -1,0 +1,71 @@
+/* Print styles */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    font-size: 11pt;
+    background: white !important;
+  }
+
+  /* Hide non-CV elements */
+  header,
+  nav,
+  button,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  /* CV specific styles */
+  #cv-content {
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  .cv-header {
+    padding: 1.5cm 2cm !important;
+  }
+
+  .cv-body {
+    padding: 0 2cm 2cm !important;
+  }
+
+  .cv-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 1cm !important;
+  }
+
+  .cv-section:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .cv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5cm;
+  }
+
+  /* Adjust font sizes for print */
+  h1 { font-size: 16pt !important; }
+  h2 { font-size: 13pt !important; }
+  h3 { font-size: 11pt !important; }
+  p, li { font-size: 10pt !important; }
+
+  /* Preserve colors and backgrounds */
+  .bg-gradient-to-r {
+    background: linear-gradient(to right, #6366f1, #9333ea) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

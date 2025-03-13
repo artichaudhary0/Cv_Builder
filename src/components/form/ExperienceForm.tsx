@@ -3,9 +3,18 @@ import { Plus, X } from 'lucide-react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
+interface Experience {
+  id: string;
+  company: string;
+  position: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+}
+
 interface ExperienceFormProps {
-  experience: FormData['experience'];
-  onChange: (experience: FormData['experience']) => void;
+  experience: Experience[];
+  onChange: (experience: Experience[]) => void;
   theme?: 'light' | 'dark' | 'grey';
 }
 

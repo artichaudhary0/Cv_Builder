@@ -1,4 +1,3 @@
-import React from 'react';
 import { Download, Share2 } from 'lucide-react';
 import { CVLayout } from './CVLayout';
 import type { FormData } from '../../types/form';

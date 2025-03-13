@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Experience } from '../../../types';
 
 interface CVExperienceProps {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { groupSkillsByCategory } from '../utils/skillsUtil';
 import type { Skill } from '../types';
 

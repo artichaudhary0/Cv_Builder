@@ -1,4 +1,3 @@
-import React from 'react';
 import { CVHeader } from './sections/CVHeader';
 import { CVSkills } from './sections/CVSkills';
 import { CVExperience } from './sections/CVExperience';

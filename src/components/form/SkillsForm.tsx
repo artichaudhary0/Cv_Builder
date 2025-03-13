@@ -1,11 +1,16 @@
-import React from 'react';
 import { Plus, X } from 'lucide-react';
 import { Suggestions } from '../common/Suggestions';
 import { skillSuggestions } from '../../data/suggestions';
 
+interface Skill {
+  name: string;
+  level: number;
+  category: string;
+}
+
 interface SkillsFormProps {
-  skills: FormData['skills'];
-  onChange: (skills: FormData['skills']) => void;
+  skills: Skill[];
+  onChange: (skills: Skill[]) => void;
 }
 
 export function SkillsForm({ skills, onChange }: SkillsFormProps) {

@@ -11,6 +11,10 @@ A modern, responsive portfolio builder for developers and tech professionals. Pe
 - 📄 **CV Generation** - Generate a clean, professional CV from your portfolio data
 - 🎯 **Fresh Graduate Friendly** - Showcase academic projects and internships
 - 🔧 **Customizable** - Easy to modify and extend
+- 🌐 **SEO Optimized** - Improve your online presence
+- 🔗 **Social Media Integration** - Easily link your profiles
+- 🔍 **Live Search** - Quickly find projects and skills
+- 🛠 **Custom Domains** - Use your own domain for a personal touch
 
 ## Detailed Guide
 
@@ -27,24 +31,28 @@ A modern, responsive portfolio builder for developers and tech professionals. Pe
    - Include project links (GitHub, live demo, etc.)
    - Upload or link to project screenshots
    - Arrange projects in order of importance
+   - Add testimonials or feedback on projects
 
 3. **Skills Section**
    - Group skills by category (Frontend, Backend, Tools)
    - Rate your proficiency level (1-5)
    - Add relevant technologies and frameworks
    - Include both technical and soft skills
+   - Show learning progress on new skills
 
 4. **Experience Timeline**
    - Add work experience or internships
    - Include academic projects and achievements
    - Specify duration using the date picker
    - Provide detailed descriptions of responsibilities
+   - Highlight key accomplishments with metrics
 
 5. **Contact Information**
    - Add professional contact details
    - Include social media links
    - Customize your email display
    - Add your location information
+   - Embed a contact form for easy inquiries
 
 ### Using Themes
 
@@ -80,6 +88,7 @@ The application offers three distinct themes:
    - Maintains professional formatting
    - Single-page layout for efficiency
    - Print-friendly design
+   - Option to include a cover letter
 
 3. **Sharing Options**
    - Download as PDF
@@ -122,7 +131,8 @@ The application offers three distinct themes:
 ## Development
 
 ### Project Structure
-```
+
+```bash
 src/
 ├── components/         # React components
 │   ├── CV/            # CV generation components
@@ -137,27 +147,31 @@ src/
 ### Local Development
 
 1. **Prerequisites**
-   ```bash
-   Node.js >= 14.0.0
-   npm >= 6.0.0
-   ```
+
+```bash
+Node.js >= 14.0.0
+npm >= 6.0.0
+```
 
 2. **Installation**
-   ```bash
-   git clone https://github.com/yourusername/portfolio-builder.git
-   cd portfolio-builder
-   npm install
-   ```
+
+```bash
+git clone https://github.com/yourusername/portfolio-builder.git
+cd portfolio-builder
+npm install
+```
 
 3. **Development Server**
-   ```bash
-   npm run dev
-   ```
+
+```bash
+npm run dev
+```
 
 4. **Building for Production**
-   ```bash
-   npm run build
-   ```
+
+```bash
+npm run build
+```
 
 ### Customization
 
@@ -172,6 +186,21 @@ src/
    - Easy to extend
    - Reusable patterns
    - TypeScript support
+
+## Deployment
+
+1. **Using Vercel**
+   - Install Vercel CLI: `npm install -g vercel`
+   - Run `vercel` and follow the setup instructions
+
+2. **Using Netlify**
+   - Connect GitHub repository
+   - Set up build command: `npm run build`
+   - Deploy site
+
+3. **Using GitHub Pages**
+   - Install `gh-pages` package: `npm install gh-pages`
+   - Run `npm run deploy`
 
 ## Contributing
 
@@ -192,3 +221,4 @@ If you need help or have questions:
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+

@@ -1,70 +1,125 @@
 /* Print styles */
 @media print {
+  /* Reset page margins and background */
   @page {
     size: A4;
     margin: 0;
   }
-
+  
+  /* Reset body styles */
   body {
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-    font-size: 11pt;
+    margin: 0 !important;
+    padding: 0 !important;
     background: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
   }
 
-  /* Hide non-CV elements */
-  header,
-  nav,
-  button,
-  footer,
-  .no-print {
+  /* Hide non-printable elements */
+  .print\:hidden {
     display: none !important;
   }
 
-  /* CV specific styles */
+  /* CV Container */
   #cv-content {
-    padding: 0 !important;
+    width: 210mm !important;
+    height: 297mm !important;
     margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+    background: white !important;
     box-shadow: none !important;
-    max-width: 100% !important;
-    width: 100% !important;
-    height: 100vh !important;
     overflow: hidden !important;
   }
 
+  /* Header styles */
   .cv-header {
-    padding: 1.5cm 2cm !important;
+    width: 210mm !important;
+    padding: 2rem !important;
+    margin: 0 !important;
+    background: linear-gradient(to right, #4f46e5, #7c3aed) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    page-break-after: avoid !important;
   }
 
+  .cv-header h1 {
+    color: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .cv-header .contact-grid {
+    color: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Main content area */
   .cv-body {
-    padding: 0 2cm 2cm !important;
+    padding: 2rem !important;
+    background: white !important;
   }
 
+  /* Section spacing */
   .cv-section {
-    break-inside: avoid;
-    page-break-inside: avoid;
-    margin-bottom: 1cm !important;
+    margin-bottom: 1.5rem !important;
+    page-break-inside: avoid !important;
   }
 
   .cv-section:last-child {
     margin-bottom: 0 !important;
   }
 
-  .cv-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5cm;
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid !important;
   }
 
-  /* Adjust font sizes for print */
-  h1 { font-size: 16pt !important; }
-  h2 { font-size: 13pt !important; }
-  h3 { font-size: 11pt !important; }
-  p, li { font-size: 10pt !important; }
+  /* Force background colors and images */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
 
-  /* Preserve colors and backgrounds */
-  .bg-gradient-to-r {
-    background: linear-gradient(to right, #6366f1, #9333ea) !important;
+  /* Preserve text colors */
+  .text-white {
+    color: white !important;
+  }
+
+  .text-indigo-600 {
+    color: #4f46e5 !important;
+  }
+
+  /* Preserve backgrounds */
+  .bg-indigo-100 {
+    background-color: #e0e7ff !important;
+  }
+
+  .bg-gray-50 {
+    background-color: #f9fafb !important;
+  }
+
+  /* Skills section */
+  .skills-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Progress bars */
+  .progress-bar {
+    background-color: #e5e7eb !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .progress-bar-fill {
+    background-color: #4f46e5 !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }

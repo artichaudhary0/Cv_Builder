@@ -10,14 +10,12 @@ interface CVLayoutProps {
 
 export function CVLayout({ data }: CVLayoutProps) {
   return (
-    <div id="cv-content" className="bg-white w-[210mm] mx-auto shadow-lg print:shadow-none">
+    <div id="cv-content" className="bg-white w-[210mm] mx-auto shadow-lg print:shadow-none print:w-[210mm] print:m-0">
       <CVHeader contact={data.contact} />
-      <div className="cv-body p-8 text-sm">
-        <div className="grid grid-cols-1 gap-6">
-          <CVSkills skills={data.skills} />
-          <CVExperience experience={data.experience} />
-          <CVProjects projects={data.projects} />
-        </div>
+      <div className="cv-body p-8 text-sm space-y-6 print:pt-6">
+        <CVSkills skills={data.skills} />
+        <CVExperience experience={data.experience} />
+        <CVProjects projects={data.projects} />
       </div>
     </div>
   );

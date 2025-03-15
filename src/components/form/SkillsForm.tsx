@@ -1,19 +1,16 @@
+import React, { useState } from 'react';
 import { Plus, X } from 'lucide-react';
 import { Suggestions } from '../common/Suggestions';
 import { skillSuggestions } from '../../data/suggestions';
 
-interface Skill {
-  name: string;
-  level: number;
-  category: string;
-}
-
 interface SkillsFormProps {
-  skills: Skill[];
-  onChange: (skills: Skill[]) => void;
+  skills: FormData['skills'];
+  onChange: (skills: FormData['skills']) => void;
 }
 
 export function SkillsForm({ skills, onChange }: SkillsFormProps) {
+  const [customSkill, setCustomSkill] = useState('');
+
   const addSkill = () => {
     onChange([...skills, { name: '', level: 3, category: 'frontend' }]);
   };
@@ -30,6 +27,20 @@ export function SkillsForm({ skills, onChange }: SkillsFormProps) {
 
   const handleSuggestionSelect = (index: number, skillName: string) => {
     updateSkill(index, 'name', skillName);
+  };
+
+  const handleCustomSkillAdd = (index: number) => {
+    if (customSkill.trim()) {
+      updateSkill(index, 'name', customSkill.trim());
+      setCustomSkill('');
+    }
+  };
+
+  const handleKeyPress = (event: React.KeyboardEvent, index: number) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      handleCustomSkillAdd(index);
+    }
   };
 
   return (
@@ -63,18 +74,39 @@ export function SkillsForm({ skills, onChange }: SkillsFormProps) {
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Skill Name
               </label>
-              <input
-                type="text"
-                value={skill.name}
-                onChange={(e) => updateSkill(index, 'name', e.target.value)}
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
-                placeholder="e.g., React"
-              />
-              <Suggestions
-                items={skillSuggestions[skill.category]}
-                onSelect={(item) => handleSuggestionSelect(index, item)}
-                className="mt-2"
-              />
+              {skill.category === 'other' ? (
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={customSkill}
+                    onChange={(e) => setCustomSkill(e.target.value)}
+                    onKeyPress={(e) => handleKeyPress(e, index)}
+                    className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Enter custom skill"
+                  />
+                  <button
+                    onClick={() => handleCustomSkillAdd(index)}
+                    className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+                  >
+                    Add
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <input
+                    type="text"
+                    value={skill.name}
+                    onChange={(e) => updateSkill(index, 'name', e.target.value)}
+                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+                    placeholder="e.g., React"
+                  />
+                  <Suggestions
+                    items={skillSuggestions[skill.category]}
+                    onSelect={(item) => handleSuggestionSelect(index, item)}
+                    className="mt-2"
+                  />
+                </>
+              )}
             </div>
 
             <div>
@@ -83,7 +115,13 @@ export function SkillsForm({ skills, onChange }: SkillsFormProps) {
               </label>
               <select
                 value={skill.category}
-                onChange={(e) => updateSkill(index, 'category', e.target.value)}
+                onChange={(e) => {
+                  updateSkill(index, 'category', e.target.value);
+                  if (e.target.value === 'other') {
+                    updateSkill(index, 'name', '');
+                    setCustomSkill('');
+                  }
+                }}
                 className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
               >
                 <option value="frontend">Frontend</option>

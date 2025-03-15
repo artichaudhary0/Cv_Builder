@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Menu, X, Mail } from 'lucide-react';
 
 interface HeaderProps {
@@ -36,6 +36,11 @@ export function Header({ contact, theme = 'light', onThemeChange, showCV, onTogg
     onNavigation(section);
     setIsMenuOpen(false);
   };
+
+  // Don't render the header if showing CV
+  if (showCV) {
+    return null;
+  }
 
   return (
     <header className={`fixed top-0 left-0 right-0 backdrop-blur-sm z-50 shadow-sm border-b ${getHeaderClasses()}`}>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Briefcase, Code, Layout, Share } from 'lucide-react';
 import { FormWizard } from './components/form/FormWizard';
 import { Header } from './components/Header';
@@ -80,7 +80,7 @@ export function App() {
             </div>
           </div>
         </div>
-        <Footer />
+        <Footer className="print:hidden" />
       </div>
     );
   }
@@ -106,13 +106,13 @@ export function App() {
             theme={theme}
           />
         </main>
-        <Footer />
+        <Footer className="print:hidden" />
       </div>
     );
   }
 
   return (
-    <div className={`min-h-screen flex flex-col ${themeClasses[theme]}`}>
+    <div className={`min-h-screen flex flex-col ${themeClasses[theme]} ${showCV ? 'pt-0' : 'pt-16'}`}>
       <Header 
         contact={formData.contact} 
         theme={theme}
@@ -121,7 +121,7 @@ export function App() {
         onToggleCV={() => setShowCV(!showCV)}
         onNavigation={handleNavigation}
       />
-      <main className="flex-grow pt-16">
+      <main className={`flex-grow ${showCV ? 'pt-0' : 'pt-16'}`}>
         {showCV ? (
           <CVGenerator data={formData} />
         ) : (
@@ -134,8 +134,8 @@ export function App() {
           </>
         )}
       </main>
-      <EditButton onClick={() => setIsEditing(true)} />
-      <Footer />
+      <EditButton onClick={() => setIsEditing(true)} className="print:hidden" />
+      <Footer className="print:hidden" />
     </div>
   );
 }

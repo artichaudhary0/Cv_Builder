@@ -1,4 +1,5 @@
-import type { Experience } from '../../../types';
+import React from 'react';
+import type { Experience } from '../../../types/form';
 
 interface CVExperienceProps {
   experience: Experience[];

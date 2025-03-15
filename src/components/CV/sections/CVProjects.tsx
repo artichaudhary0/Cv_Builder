@@ -1,4 +1,5 @@
-import type { Project } from '../../../types';
+import React from 'react';
+import type { Project } from '../../../types/form';
 
 interface CVProjectsProps {
   projects: Project[];
@@ -10,18 +11,25 @@ export function CVProjects({ projects }: CVProjectsProps) {
   return (
     <div className="cv-section">
       <h2 className="text-lg font-bold mb-3 text-gray-800">Projects</h2>
-      <div className="cv-grid">
+      <div className="space-y-3">
         {projects.map(project => (
           <div key={project.id} className="bg-gray-50 p-3 rounded">
-            <h3 className="font-medium text-indigo-600 mb-1">{project.title}</h3>
-            <p className="text-gray-600 text-sm mb-2">{project.description}</p>
-            <div className="flex flex-wrap gap-1">
-              {project.tags.map(tag => (
-                <span
-                  key={`${project.id}-${tag}`}
-                  className="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded text-xs"
-                >
-                  {tag}
+            <div className="flex justify-between items-start">
+              <h3 className="font-medium text-indigo-600">
+                {project.link ? (
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    {project.name}
+                  </a>
+                ) : (
+                  project.name
+                )}
+              </h3>
+            </div>
+            <p className="text-gray-600 mt-1 text-sm">{project.description}</p>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {project.technologies.map(tech => (
+                <span key={tech} className="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded">
+                  {tech}
                 </span>
               ))}
             </div>

@@ -1,14 +1,16 @@
+import React from 'react';
 import { Edit } from 'lucide-react';
 
 interface EditButtonProps {
   onClick: () => void;
+  className?: string;
 }
 
-export function EditButton({ onClick }: EditButtonProps) {
+export function EditButton({ onClick, className = '' }: EditButtonProps) {
   return (
     <button
       onClick={onClick}
-      className="fixed bottom-6 right-6 bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition-colors z-50 group"
+      className={`fixed bottom-6 right-6 bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition-colors z-50 group ${className}`}
       aria-label="Edit Portfolio"
     >
       <Edit className="w-6 h-6" />

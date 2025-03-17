@@ -1,5 +1,4 @@
-import React from 'react';
-import type { Project } from '../../../types/form';
+import type { Project } from '../../../types/index';
 
 interface CVProjectsProps {
   projects: Project[];
@@ -18,16 +17,16 @@ export function CVProjects({ projects }: CVProjectsProps) {
               <h3 className="font-medium text-indigo-600">
                 {project.link ? (
                   <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    {project.name}
+                    {project.title}
                   </a>
                 ) : (
-                  project.name
+                  project.title
                 )}
               </h3>
             </div>
             <p className="text-gray-600 mt-1 text-sm">{project.description}</p>
             <div className="flex flex-wrap gap-2 mt-2">
-              {project.technologies.map(tech => (
+              {project.tags.map(tech => (
                 <span key={tech} className="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded">
                   {tech}
                 </span>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Download, Share2 } from 'lucide-react';
 import { CVLayout } from './CVLayout';
 import type { FormData } from '../../types/form';
@@ -30,7 +29,7 @@ export function CVGenerator({ data }: CVGeneratorProps) {
   };
 
   return (
-    <div className="py-8 max-w-[210mm] mx-auto print:p-0 print:m-0">
+    <div className="py-8 max-w-[210mm] mx-auto print:p-0 print:m-0 mt-16">
       <div className="flex justify-end gap-4 mb-8 px-6 print:hidden">
         <button
           onClick={handleShare}

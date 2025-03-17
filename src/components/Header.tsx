@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Menu, X, Mail } from 'lucide-react';
 
 interface HeaderProps {
@@ -10,9 +10,10 @@ interface HeaderProps {
   showCV: boolean;
   onToggleCV: () => void;
   onNavigation: (section: string) => void;
+  className?: string;
 }
 
-export function Header({ contact, theme = 'light', onThemeChange, showCV, onToggleCV, onNavigation }: HeaderProps) {
+export function Header({ contact, theme = 'light', onThemeChange, showCV, onToggleCV, onNavigation, className = '' }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const getHeaderClasses = () => {
@@ -37,13 +38,8 @@ export function Header({ contact, theme = 'light', onThemeChange, showCV, onTogg
     setIsMenuOpen(false);
   };
 
-  // Don't render the header if showing CV
-  if (showCV) {
-    return null;
-  }
-
   return (
-    <header className={`fixed top-0 left-0 right-0 backdrop-blur-sm z-50 shadow-sm border-b ${getHeaderClasses()}`}>
+    <header className={`fixed top-0 left-0 right-0 backdrop-blur-sm z-50 shadow-sm border-b ${getHeaderClasses()} ${className}`}>
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <a 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Edit } from 'lucide-react';
 
 interface EditButtonProps {

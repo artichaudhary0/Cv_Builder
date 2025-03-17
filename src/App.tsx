@@ -112,7 +112,7 @@ export function App() {
   }
 
   return (
-    <div className={`min-h-screen flex flex-col ${themeClasses[theme]} ${showCV ? 'pt-0' : 'pt-16'}`}>
+    <div className={`min-h-screen flex flex-col ${themeClasses[theme]}`}>
       <Header 
         contact={formData.contact} 
         theme={theme}
@@ -120,6 +120,7 @@ export function App() {
         showCV={showCV}
         onToggleCV={() => setShowCV(!showCV)}
         onNavigation={handleNavigation}
+        className="print:hidden"
       />
       <main className={`flex-grow ${showCV ? 'pt-0' : 'pt-16'}`}>
         {showCV ? (

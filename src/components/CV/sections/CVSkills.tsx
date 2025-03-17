@@ -1,6 +1,6 @@
 
 import { groupSkillsByCategory } from '../../../utils/skillsUtil';
-import type { Skill } from '../../../types/form';
+import type { Skill } from '../../../types/index';
 
 interface CVSkillsProps {
   skills: Skill[];
